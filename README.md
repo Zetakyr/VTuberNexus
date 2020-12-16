@@ -1,0 +1,2 @@
+# VTuberNexus
+Project attempt
