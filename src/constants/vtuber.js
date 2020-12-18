@@ -1,11 +1,14 @@
 export default {
-    kappa: {
-        name: "Kappa",
-        skills: ["Art", "Singing", "Trolling"],
+    Valliese: {
+        name: "Valliese",
+        skills: ["Manipulation", "Singing", "Murder"],
+        model: "png",
+        // characterArt: 
 
     },
-    sofia: {
+    sister: {
         name: "Gabster",
-        skills: ["Spying", 'Trolling', 'Staring', 'Meeping']
+        skills: ["Spying", 'Trolling', 'Staring', 'Meeping'],
+        model: "nope lol"
     }
 };

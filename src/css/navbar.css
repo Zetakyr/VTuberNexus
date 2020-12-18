@@ -1,0 +1,7 @@
+#navbar {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(103, 174, 255);
+    padding-top: 30px;
+    padding-bottom: 30px;
+}

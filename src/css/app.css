@@ -1,0 +1,45 @@
+#bigContainer {
+    display: flex;
+}
+
+.flex {
+    display: flex;
+}
+
+#filters {
+    width: 180px;
+    height: 97vh;
+    background-color: rgb(202, 202, 202);
+}
+
+#profilePanel {
+    margin-left: 40px;
+    margin-top: 50px;
+    width: 870px;
+    height: 67vh;
+    background-color: rgb(236, 246, 255);
+}
+
+#characterArtPanel {
+    background-color: red;
+    width: 550px;
+    height: 82vh;
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+#miniNav {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(103, 174, 255);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    
+}
+
+#name {
+    margin-right: 300px;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(202, 202, 202);
+}
