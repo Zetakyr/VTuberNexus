@@ -4,7 +4,7 @@ import '../css/navbar.css';
 export const Navbar = () => {
     return (
         <div id="navbar">
-            <a href="/">
+            <a href="/home">
                 <div>Home</div>
             </a>
             <a href="/vtubers">

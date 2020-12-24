@@ -6,26 +6,43 @@
     display: flex;
 }
 
-#filters {
-    width: 180px;
-    height: 97vh;
-    background-color: rgb(202, 202, 202);
-}
+.innerShadow {
+    box-shadow:  -10px 4px 10px #2a008b94;
+ }
+ 
+ body {
+    background-image: url("../images/greybackground.png");
+    background-size: cover;
+ }
 
 #profilePanel {
     margin-left: 40px;
-    margin-top: 50px;
+    /* margin-top: 50px; */
     width: 870px;
+    max-height: 67vh;
     height: 67vh;
-    background-color: rgb(236, 246, 255);
+    overflow-y: auto;
+    background-color: rgba(6, 49, 243, 0.281);
+    background-image: linear-gradient(to right,
+    rgba(182, 4, 236, 0.432),
+    rgba(182, 4, 236, 0.151),
+    rgba(37, 139, 255, 0),
+    rgba(37, 139, 255, 0),
+    rgba(37, 139, 255, 0),
+    rgb(37, 139, 255, 0.03));
+    box-shadow:  inset 0px 0px 10px #20102b94;
+    backdrop-filter: blur(1px);
 }
 
 #characterArtPanel {
-    background-color: red;
+    /* background-color: red; */
     width: 550px;
-    height: 82vh;
+    min-width: 550px;
+    height: 85.7vh;
     margin-top: 20px;
     margin-left: 40px;
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 
 #miniNav {
@@ -34,12 +51,113 @@
     background-color: rgb(103, 174, 255);
     padding-top: 20px;
     padding-bottom: 20px;
-    
+    width: 870px;
+    margin-left: 40px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    border-style: solid;
+
 }
 
-#name {
-    margin-right: 300px;
+#profileLeft {
     display: flex;
-    justify-content: center;
-    background-color: rgb(202, 202, 202);
+    flex-direction: column;
+    align-items: center;
+    /* background-color: rgb(202, 202, 202); */
+    width:60%;
+}
+
+#profileRight {
+    /* background-color: rgb(219, 179, 179); */
+    margin-top: 100px;
+    width: 40%;
+}
+
+#graphicsContainer {
+    width: 80%;
+}
+
+#displayedGraphics {
+    background-color: rgb(156, 156, 194);
+    height: 250px;
+    box-shadow:  inset 0px 0px 10px #085eff94;
+
+}
+
+#filters {
+    width: 180px;
+    margin-top: 40px;
+    background-color: rgba(111, 210, 240, 0.281);
+    backdrop-filter: blur(1px);
+    border-radius: 40px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    padding: 20px;
+    box-shadow:  inset 0px 0px 10px #133342bb;
+}
+
+#vtuberListDisplay {
+    display: flex;
+    flex-wrap: wrap;
+    width: 860px;
+    min-height: 500px;
+    max-height: 500px;
+    height: 500px;
+    background-color: rgba(218, 38, 203, 0.404);
+    backdrop-filter: blur(1px);
+    margin-left: 40px;
+    margin-top: 40px;
+    padding: 40px;
+    border-radius: 30px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+    overflow-y: auto;
+    box-shadow:  inset 0px 0px 10px #50134d94;
+}
+
+#adSpace {
+    position: absolute;
+    background-color: rgba(255, 208, 0, 0.397);
+    width: 270px;
+    height: 580px;
+    right: 0;
+    margin-right: 30px;
+    margin-top: 40px;
+    box-shadow:  inset 0px 0px 20px #ff7f08d7;
+    backdrop-filter: blur(1px);
+    border-radius: 30px;
+}
+
+.noLine {
+    text-decoration: none;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 20px;
+  
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #bd67c986;
+  border-radius: 30px;
+  box-shadow:  inset 0px 0px 10px #133342bb;
+
+
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(151, 0, 156, 0.671);
+  border-radius: 30px;
+  box-shadow:  inset 0px 0px 10px #133342bb;
+
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(151, 0, 156);
 }

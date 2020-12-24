@@ -1,5 +1,4 @@
 import React from 'react';
-import Vtubers from '../constants/vtuber';
 import '../css/card.css';
 
 export const Card = (props) => {
@@ -7,8 +6,14 @@ export const Card = (props) => {
 
     return (
         <div id="card">
-            <div>NEW CARD</div>
-            <div>{props.name}</div>
+            <div style={{
+                backgroundImage: `url(${props?.cardArt})`,
+                width: "100%",
+                height: "70%",
+                backgroundSize: "100%",
+                backgroundRepeat: "no-repeat"
+            }}></div>
+            <div id="cardName">{props.name}</div>
         </div>
     )
 }

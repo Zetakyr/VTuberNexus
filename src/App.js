@@ -4,6 +4,8 @@ import { Home } from './pages/Home';
 import { Vtubers } from './pages/Vtubers';
 import { Profile } from './pages/Profile';
 import { Navbar } from './components/navbar';
+import { Missing } from './pages/Missing';
+import { Socials } from './pages/Socials';
 import './App.css';
 
 class App extends Component {
@@ -13,15 +15,16 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div>
+        <div style={{ minHeight: "100vh" }}>
           <Navbar />
           <Switch>
             <Route path="/vtubers" component={Vtubers} />
-            <Route path="/:id/posts" component={Profile} />
-            <Route path="/:id/community" component={Profile} />
-            <Route path="/:id/socials" component={Profile} />
-            <Route path="/:id" component={Profile} />
-            <Route path="/" component={Home} />
+            {/* <Route path="/profile/:id/posts" component={Profile} /> */}
+            {/* <Route path="/profile/:id/community" component={Profile} /> */}
+            <Route path="/profile/:id/socials" component={Socials} />
+            <Route path="/profile/:id" component={Profile} />
+            <Route path="/home" component={Home} />
+            <Route path="/" component={Missing} />
           </Switch>
         </div>
       </BrowserRouter>
