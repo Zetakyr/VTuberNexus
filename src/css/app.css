@@ -13,6 +13,7 @@
  body {
     background-image: url("../images/greybackground.png");
     background-size: cover;
+    animation: backgroundLoop 24s linear infinite;
  }
 
 #profilePanel {
@@ -21,17 +22,21 @@
     width: 870px;
     max-height: 67vh;
     height: 67vh;
+    border-radius: 30px;
     overflow-y: auto;
-    background-color: rgba(6, 49, 243, 0.281);
-    background-image: linear-gradient(to right,
-    rgba(182, 4, 236, 0.432),
+    backdrop-filter: 
+        sepia(40%) 
+        contrast(100%) 
+        brightness(80%) /*black to white*/
+        saturate(900%) /*grey to color*/
+        hue-rotate(130deg); /*color* 0/360 = yellow*/      background-image: linear-gradient(to right,
+    rgba(182, 4, 236, 0.332),
     rgba(182, 4, 236, 0.151),
     rgba(37, 139, 255, 0),
     rgba(37, 139, 255, 0),
     rgba(37, 139, 255, 0),
     rgb(37, 139, 255, 0.03));
-    box-shadow:  inset 0px 0px 10px #20102b94;
-    backdrop-filter: blur(1px);
+    box-shadow:  inset 0px 0px 10px #2b0535a8;
 }
 
 #characterArtPanel {
@@ -39,7 +44,7 @@
     width: 550px;
     min-width: 550px;
     height: 85.7vh;
-    margin-top: 20px;
+    margin-top: 38.912px;
     margin-left: 40px;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -47,16 +52,21 @@
 
 #miniNav {
     display: flex;
-    justify-content: space-around;
-    background-color: rgb(103, 174, 255);
-    padding-top: 20px;
-    padding-bottom: 20px;
-    width: 870px;
+    justify-content: space-between;
+    background-color:#333;
+    padding-left: 40px;
+    padding-right: 530px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 300px;
     margin-left: 40px;
     margin-top: 40px;
     margin-bottom: 10px;
-    border-style: solid;
-
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+    color: white;
+    box-shadow:  inset 0px 0px 10px #000000;
+    border-radius: 30px;
 }
 
 #profileLeft {
@@ -78,22 +88,54 @@
 }
 
 #displayedGraphics {
-    background-color: rgb(156, 156, 194);
+    background-color: rgb(82, 82, 92);
     height: 250px;
-    box-shadow:  inset 0px 0px 10px #085eff94;
+    box-shadow:  inset 0px 0px 10px #080e1a94;
+
+}
+
+#filtersText {
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    text-shadow: -3px 2px 6px rgb(6, 43, 110);
+}
+
+.checkBox {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+    border-radius: 7px;
+
+}
+
+.filters {
+    display: flex;
+    align-items: center;
+    color: white;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    text-shadow: -3px 2px 6px rgb(6, 43, 110);
 
 }
 
 #filters {
     width: 180px;
     margin-top: 40px;
-    background-color: rgba(111, 210, 240, 0.281);
-    backdrop-filter: blur(1px);
+    /* background-color: rgba(111, 210, 240, 0.281); */
+    backdrop-filter: 
+        sepia(40%) 
+        contrast(100%) 
+        brightness(90%) /*black to white*/
+        saturate(600%) /*grey to color*/
+        hue-rotate(168deg); /*color* 0/360 = yellow*/    
     border-radius: 40px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     padding: 20px;
-    box-shadow:  inset 0px 0px 10px #133342bb;
+    box-shadow:  inset 0px 0px 10px #000a0adc;
+    
 }
 
 #vtuberListDisplay {
@@ -103,8 +145,13 @@
     min-height: 500px;
     max-height: 500px;
     height: 500px;
-    background-color: rgba(218, 38, 203, 0.404);
-    backdrop-filter: blur(1px);
+    /* background-color: rgba(218, 38, 203, 0.404); */
+    backdrop-filter: 
+        sepia(40%) 
+        contrast(80%) 
+        brightness(70%) /*black to white*/
+        saturate(1000%) /*grey to color*/
+        hue-rotate(230deg); /*color* 0/360 = yellow*/
     margin-left: 40px;
     margin-top: 40px;
     padding: 40px;
@@ -113,19 +160,24 @@
     border-bottom-right-radius: 10px;
 
     overflow-y: auto;
-    box-shadow:  inset 0px 0px 10px #50134d94;
+    box-shadow:  inset 0px 0px 10px #4e134bc4;
 }
 
 #adSpace {
     position: absolute;
-    background-color: rgba(255, 208, 0, 0.397);
+    /* background-color: rgba(255, 208, 0, 0); */
     width: 270px;
     height: 580px;
     right: 0;
     margin-right: 30px;
     margin-top: 40px;
-    box-shadow:  inset 0px 0px 20px #ff7f08d7;
-    backdrop-filter: blur(1px);
+    box-shadow:  inset 0px 0px 10px #ff0808a9;
+    backdrop-filter: 
+        sepia(90%)
+        contrast(100%)
+        brightness(73%) 
+        saturate(1400%) 
+        hue-rotate(-10deg);
     border-radius: 30px;
 }
 
@@ -160,4 +212,8 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(151, 0, 156);
+}
+
+@keyframes backgroundLoop {
+ 50%{ background-position: 0px 120vh; }
 }

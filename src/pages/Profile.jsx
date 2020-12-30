@@ -11,7 +11,16 @@ export const Profile = (props) => {
     const [vTuber, setVTuber] = useState();
 
     useEffect(async () => {
-        const res = await axios.get(`http://localhost:8080/getVTuber/${id}`);
+        // const res = await axios.get(`http://localhost:8080/getVTuber/${id}`);
+        const res = await axios.post(`http://localhost:8080/getVTuber/`, {
+            id,
+            Yoloswaggers: 'haha lol',
+            CaoNi: 'Chu Feng',
+            'Meow Meow': {
+                kaguya: 'u  Kappa',
+                shirogane: 'No u'
+            }
+        });
         console.log(res)
         setVTuber(res.data[id])
     }, [id])

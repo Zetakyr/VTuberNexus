@@ -4,10 +4,10 @@ import '../css/navbar.css';
 export const Navbar = () => {
     return (
         <div id="navbar">
-            <a href="/home">
+            <a className="noLine whiteText" href="/home">
                 <div>Home</div>
             </a>
-            <a href="/vtubers">
+            <a className="noLine whiteText" href="/vtubers">
                 <div>Vtubers</div>
             </a>
         </div>

@@ -5,7 +5,7 @@ export const MiniNav = (props) => {
     return (
         <div>
             <div id="miniNav">
-                <a href={`/profile/${props.vTuberId}`}>
+                <a className="noLine whiteText" href={`/profile/${props.vTuberId}`}>
                     <div>Profile</div>
                 </a>
                 {/* <a href={`/profile/${props.vTuberId}/posts`}>
@@ -14,7 +14,7 @@ export const MiniNav = (props) => {
                 <a href={`/profile/${props.vTuberId}/community`}>
                     <div>Community</div>
                 </a> */}
-                <a href={`/profile/${props.vTuberId}/socials`}>
+                <a className="noLine whiteText" href={`/profile/${props.vTuberId}/socials`}>
                     <div>Socials</div>
                 </a>
             </div>

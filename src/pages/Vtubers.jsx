@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Card } from '../components/Card';
+import { FilterButton } from '../components/FilterButton';
 import { map } from 'lodash'
 import '../css/app.css'
 
@@ -52,12 +53,12 @@ export const Vtubers = (props) => {
     return (
         <div className="flex">
             <div id="filters">
-                Filters
-
+                <div id="filtersText">Filters</div>
+                <div className="filterClass">Model</div>
                 <div>
-                    <div className="" style={{ backgroundColor: modelPNGFilter ? "GREEN" : "RED" }} onClick={() => setModelPNGFilter(!modelPNGFilter)}>png</div>
-                    <div style={{ backgroundColor: model2DFilter ? "GREEN" : "RED" }} onClick={() => setModel2DFilter(!model2DFilter)}>2d</div>
-                    <div style={{ backgroundColor: model3DFilter ? "GREEN" : "RED" }} onClick={() => setModel3DFilter(!model3DFilter)}>3d</div>
+                    <FilterButton setFilter={() => setModelPNGFilter(!modelPNGFilter)} filter={modelPNGFilter} filterType="PNG" />
+                    <FilterButton setFilter={() => setModel2DFilter(!model2DFilter)} filter={model2DFilter} filterType="2D" />
+                    <FilterButton setFilter={() => setModel3DFilter(!model3DFilter)} filter={model3DFilter} filterType="3D" />
                 </div>
 
             </div>
