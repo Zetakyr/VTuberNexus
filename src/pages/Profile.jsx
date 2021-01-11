@@ -1,32 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
+
+import { FaThumbsUp } from 'react-icons/fa';
 import { MiniNav } from '../components/MiniNav';
 import { ProfilePanel } from '../components/ProfilePanel';
 import { Property } from '../components/Property';
 import { Items } from '../components/Items';
-import '../App.css';
 
-export const Profile = (props) => {
-    const id = props.match.params.id;
+
+
+const RawProfile = (props) => {
+    const id = props.match.params.name;
+    const email = props?.user?.email;
     const [vTuber, setVTuber] = useState();
 
     useEffect(async () => {
-        // const res = await axios.get(`http://localhost:8080/getVTuber/${id}`);
-        const res = await axios.post(`http://localhost:8080/getVTuber/`, {
-            id,
-            Yoloswaggers: 'haha lol',
-            CaoNi: 'Chu Feng',
-            'Meow Meow': {
-                kaguya: 'u  Kappa',
-                shirogane: 'No u'
-            }
-        });
-        console.log(res)
-        setVTuber(res.data[id])
+        try {
+            const res = await axios.get(`http://localhost:8080/getVtuber/${id}`);
+            setVTuber(res.data)
+        } catch (err) {
+            console.error(err);
+        }
     }, [id])
-
-    console.log(props.match.params);
-    // console.log(vTuber.platformLink.youtube);
 
     const renderYoutubeButton = () => {
 
@@ -34,8 +30,19 @@ export const Profile = (props) => {
             return null;
         }
 
-        return <a target="_blank" href={`${vTuber.platformLink.youtube}`}>
+        return <a target="_blank" rel="noopener noreferrer" href={`${vTuber.platformLink.youtube}`}>
             <Items>Youtube</Items>
+        </a>
+    }
+
+    const renderTwitchButton = () => {
+
+        if (!vTuber?.platformLink?.twitch) {
+            return null;
+        }
+
+        return <a target="_blank" rel="noopener noreferrer" href={`${vTuber.platformLink.twitch}`}>
+            <Items>Twitch</Items>
 
 
         </a>
@@ -51,6 +58,7 @@ export const Profile = (props) => {
 
             <div style={{ marginBottom: "30px" }}>
                 {renderYoutubeButton()}
+                {renderTwitchButton()}
             </div>
 
         </>
@@ -86,9 +94,22 @@ export const Profile = (props) => {
             </Items> </>
     }
 
+    const setLike = async () => {
+        try {
+            const res = await axios.put(`http://localhost:8080/like/${id}`, {
+                email
+            });
+            setVTuber(res.data?.vtuber)
+        } catch (err) {
+            console.error(err);
+        }
+    }
 
 
-    console.log(vTuber?.characterArt)
+
+    // console.log(vTuber?.characterArt)
+
+    const likeColor = vTuber?.likes && vTuber?.likes[email] ? 'green' : 'grey';
 
     return (
         <div className="flex">
@@ -100,7 +121,7 @@ export const Profile = (props) => {
 
                     <div className="flex">
                         <div id="profileLeft">
-                            <h1>{vTuber?.name}</h1>
+                            <h1>{vTuber?.name} <FaThumbsUp color={likeColor} onClick={setLike} /></h1>
 
                             <div id="graphicsContainer">
                                 <div id="displayedGraphics"></div>
@@ -111,11 +132,10 @@ export const Profile = (props) => {
 
                         </div>
                         <div id="profileRight">
+                            <div id="LikeButton"></div>
                             {renderLink()}
                             {renderGenre()}
-                            {/* <div>Model: {vTuber?.model}</div> */}
                             {renderGroup()}
-
                         </div>
 
                     </div>
@@ -131,3 +151,9 @@ export const Profile = (props) => {
         </div >
     )
 }
+
+const mapStateToProps = ({ userInfo }) => {
+    return { user: userInfo };
+}
+
+export const Profile = connect(mapStateToProps)(RawProfile);

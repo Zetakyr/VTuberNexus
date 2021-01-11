@@ -3,6 +3,8 @@ import axios from 'axios';
 import { Card } from '../components/Card';
 import { FilterButton } from '../components/FilterButton';
 import { map } from 'lodash'
+import { Link } from 'react-router-dom';
+
 import '../css/app.css'
 
 export const Vtubers = (props) => {
@@ -11,8 +13,7 @@ export const Vtubers = (props) => {
     const [vTuber, setVTuber] = useState();
 
     useEffect(async () => {
-        const res = await axios.get(`http://localhost:8080/getVTubers`);
-        console.log(res.data)
+        const res = await axios.get(`http://localhost:8080/getVtuber`);
         setVTuber(res.data)
     }, [id])
 
@@ -22,9 +23,8 @@ export const Vtubers = (props) => {
     const [model3DFilter, setModel3DFilter] = useState();
 
 
-    const filterVtuber = (val, key) => {
-        console.log(val);
-        console.log(key);
+    const filterVtuber = (val) => {
+
         if (modelPNGFilter) {
             if (!val?.model?.png) {
                 return null;
@@ -40,21 +40,21 @@ export const Vtubers = (props) => {
                 return null;
             }
         }
-        return <a className="noLine" href={`/profile/${key}`} key={key}>
+        return <Link className="noLine marginTen" to={`/profile/${val.name}`} key={val.name}>
             <Card
                 name={`${val?.name}`}
                 cardArt={`${val?.cardArt}`}
             >
             </Card>
 
-        </a>
+        </Link>
     }
 
     return (
         <div className="flex">
             <div id="filters">
                 <div id="filtersText">Filters</div>
-                <div className="filterClass">Model</div>
+                <div className="filterClass" style={{ color: "white", textShadow: "-3px 2px 6px rgb(6, 43, 110)" }}>Model</div>
                 <div>
                     <FilterButton setFilter={() => setModelPNGFilter(!modelPNGFilter)} filter={modelPNGFilter} filterType="PNG" />
                     <FilterButton setFilter={() => setModel2DFilter(!model2DFilter)} filter={model2DFilter} filterType="2D" />
@@ -63,10 +63,11 @@ export const Vtubers = (props) => {
 
             </div>
             <div id="vtuberListDisplay">
-                {/* {VtubersList?.map((val, index) => { console.log(val, index) })} */}
-                {map(vTuber?.vTubers, filterVtuber)}
+                {map(vTuber, filterVtuber)}
             </div>
-            <div id="adSpace"></div>
+            <div id="adSpace">
+                {/* This is a saved area for a future implementation. */}
+            </div>
         </div >
     )
 }

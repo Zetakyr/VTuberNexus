@@ -1,15 +1,61 @@
-import React from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { logout } from '../actions';
 import '../css/navbar.css';
 
-export const Navbar = () => {
+const RawNavbar = (props) => {
+
+    const logoutFunction = async () => {
+        props.logout();
+    }
+
+    const renderLogoutButton = () => {
+        if (!props?.user?.email) {
+            return null;
+        }
+        return <>
+            <div onClick={logoutFunction} className="authenticateButton">
+                Logout
+            </div>
+        </>
+    }
+
+    const renderLoginButton = () => {
+        if (props?.user?.email) {
+            return null;
+        }
+        return <>
+            <Link to="/login" className="authenticateButton noLine">
+                Login
+                </Link>
+            <Link to="/signup" className="authenticateButton noLine">
+                Sign Up
+                </Link>
+        </>
+    }
+
+
     return (
         <div id="navbar">
-            <a className="noLine whiteText" href="/home">
-                <div>Home</div>
-            </a>
-            <a className="noLine whiteText" href="/vtubers">
-                <div>Vtubers</div>
-            </a>
+            <div id="navLinks">
+                <Link className="noLine whiteText" to="/home">
+                    <div>Home</div>
+                </Link>
+                <Link className="noLine whiteText" to="/vtubers">
+                    <div>Vtubers</div>
+                </Link>
+            </div>
+            <div id="authenticate">
+                {renderLogoutButton()}
+                {renderLoginButton()}
+
+            </div>
         </div>
     )
 }
+
+const mapStateToProps = ({ userInfo }) => {
+    return { user: userInfo };
+}
+
+export const Navbar = connect(mapStateToProps, { logout })(RawNavbar);

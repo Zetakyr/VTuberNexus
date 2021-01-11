@@ -1,17 +1,45 @@
 #navbar {
     display: flex;
-    justify-content: space-between;
     background-color: #333;
-    padding: 210px;
-    padding-right: 1000px;
-    padding-top: 10px;
-    padding-bottom: 10px;
     font-family: 'Poppins', sans-serif;
-    font-size: 30px;
-    color: white;
     box-shadow:  inset 0px 0px 10px #000000;
 }
 
 .whiteText {
     color: white;
+}
+
+#navLinks {
+    display: flex;
+    width: 50%;
+    min-width: 50%;
+    max-width: 50%;
+    justify-content: space-around;
+    font-size: 30px;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#authenticate {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    width: 11%;
+    margin-right: 2%;
+    margin-left: 37%;
+}
+
+.authenticateButton {
+    background-color: white;
+    box-shadow:  inset 0px 0px 3px 2px #9126ac;
+    color: black;
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-radius: 4px;
 }

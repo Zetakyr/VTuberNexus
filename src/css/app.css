@@ -83,6 +83,12 @@
     width: 40%;
 }
 
+#LikeButton {
+    width: 30px;
+    height: 30px;
+    background-color: red;
+}
+
 #graphicsContainer {
     width: 80%;
 }
@@ -142,6 +148,7 @@
     display: flex;
     flex-wrap: wrap;
     width: 860px;
+    min-width: 860px;
     min-height: 500px;
     max-height: 500px;
     height: 500px;
@@ -164,12 +171,13 @@
 }
 
 #adSpace {
-    position: absolute;
+    /* position: absolute; */
     /* background-color: rgba(255, 208, 0, 0); */
     width: 270px;
+    min-width: 270px;
     height: 580px;
-    right: 0;
-    margin-right: 30px;
+    /* right: 0; */
+    margin-left: 30px;
     margin-top: 40px;
     box-shadow:  inset 0px 0px 10px #ff0808a9;
     backdrop-filter: 
@@ -179,6 +187,41 @@
         saturate(1400%) 
         hue-rotate(-10deg);
     border-radius: 30px;
+}
+
+.loginForm {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 860px;
+    min-height: 500px;
+    max-height: 500px;
+    height: 500px;
+    margin-top: 40px;
+    /* background-color: rgba(111, 210, 240, 0.281); */
+    backdrop-filter: 
+        sepia(40%) 
+        contrast(100%) 
+        brightness(110%) /*black to white*/
+        saturate(80%) /*grey to color*/
+        hue-rotate(198deg); /*color* 0/360 = yellow*/    
+    border-radius: 40px;
+    padding: 20px;
+    box-shadow:  inset 0px 0px 10px #000a0adc;
+}
+
+.marginTen {
+    margin: 10px;
+}
+
+.flexColumn {
+    display:flex;
+    flex-direction: column;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
 }
 
 .noLine {

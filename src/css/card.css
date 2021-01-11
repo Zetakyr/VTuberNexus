@@ -1,14 +1,11 @@
 #card {
     height: 200px;
     width: 140px;
-    margin: 10px;
     background-color: rgb(228, 170, 63);
     border-radius: 6px;
     border-style: solid;
     border-width: 4px;
     border-color: rgb(214, 214, 214);
-    /* box-shadow:  inset 0px 0px 10px  rgba(253, 0, 0, 0.671); */
-
 }
 
 #cardName {
@@ -25,9 +22,6 @@
     color: white;
 
 }
-
-/* #cardName:hover {
-} */
 
 #card:hover {
     border-color: rgb(255, 255, 255);
