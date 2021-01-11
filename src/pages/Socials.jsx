@@ -9,8 +9,12 @@ export const Socials = (props) => {
     const [vTuber, setVTuber] = useState();
 
     useEffect(async () => {
-        const res = await axios.post(`http://localhost:8080/getVTuber`, { id });
-        setVTuber(res.data[id])
+        try {
+            const res = await axios.get(`http://localhost:8080/getVtuber/${id}`);
+            setVTuber(res.data)
+        } catch (err) {
+            console.error(err);
+        }
     }, [id])
     const renderTwitter = () => {
 

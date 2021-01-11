@@ -105,11 +105,7 @@ const RawProfile = (props) => {
         }
     }
 
-
-
-    // console.log(vTuber?.characterArt)
-
-    const likeColor = vTuber?.likes && vTuber?.likes[email] ? 'green' : 'grey';
+    const likeColor = vTuber?.likes && vTuber?.likes[email] ? 'rgb(0, 110, 255)' : 'grey';
 
     return (
         <div className="flex">
@@ -121,7 +117,10 @@ const RawProfile = (props) => {
 
                     <div className="flex">
                         <div id="profileLeft">
-                            <h1>{vTuber?.name} <FaThumbsUp color={likeColor} onClick={setLike} /></h1>
+                            <div className="flex displayName">
+                                <div className="name">{vTuber?.name}</div>
+                                <FaThumbsUp className="likeButton" color={likeColor} onClick={setLike} />
+                            </div>
 
                             <div id="graphicsContainer">
                                 <div id="displayedGraphics"></div>
@@ -132,7 +131,6 @@ const RawProfile = (props) => {
 
                         </div>
                         <div id="profileRight">
-                            <div id="LikeButton"></div>
                             {renderLink()}
                             {renderGenre()}
                             {renderGroup()}

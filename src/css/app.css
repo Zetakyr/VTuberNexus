@@ -83,14 +83,30 @@
     width: 40%;
 }
 
-#LikeButton {
-    width: 30px;
-    height: 30px;
-    background-color: red;
-}
-
 #graphicsContainer {
     width: 80%;
+}
+
+.displayName {
+    font-size: 50px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.likeButton{
+    font-size: 40px;
+    background-color: white;
+    padding: 5px;
+    margin-top: 10px;
+    transform: translateX(40px);
+    border-radius: 4px;
+    box-shadow:  inset 0px 0px 8px #24066b94;
+}
+
+/* To get colors: */
+
+#experimentalColor {
+    color:rgb(0, 110, 255)
 }
 
 #displayedGraphics {
