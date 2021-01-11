@@ -1,9 +1,22 @@
-import { connect } from 'react-redux';
+import React, { useEffect } from 'react';
+import { connect, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { logout } from '../actions';
+import { login, logout } from '../actions';
 import '../css/navbar.css';
 
 const RawNavbar = (props) => {
+
+    const { user } = props;
+    const dispatch = useDispatch();
+    useEffect(() => {
+        // This feature is done in Navbar because all pages have Navbar. Possible to move to another component that handles authentication
+        const pastUser = localStorage.getItem('user');
+        const decodedUser = pastUser && JSON.parse(pastUser)
+        if ((!user || !user.email) && decodedUser) {
+            dispatch({ type: 'login', payload: decodedUser })
+        }
+    }, [user]);
+
 
     const logoutFunction = async () => {
         props.logout();

@@ -10,6 +10,7 @@ export const login = (email, password) => async dispatch => {
             password
         });
         const user = res.data;
+        localStorage.setItem('user', JSON.stringify(user));
         dispatch({ type: 'login', payload: user })
     } catch (err) {
         console.error(err.message);
@@ -20,7 +21,8 @@ export const login = (email, password) => async dispatch => {
 
 export const logout = () => async dispatch => {
     try {
-        dispatch({ type: 'logout', payload: null })
+        localStorage.removeItem('user');
+        dispatch({ type: 'logout', payload: null });
     } catch (err) {
         console.error(err.message);
     }
